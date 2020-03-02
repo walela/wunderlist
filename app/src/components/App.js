@@ -1,7 +1,13 @@
-import React from 'react'
+import React, { useReducer, useEffect } from 'react'
+import { ThemeProvider, CSSReset, Heading } from '@chakra-ui/core'
 
 function App() {
-  return <div>yo</div>
+  return (
+    <ThemeProvider>
+      <CSSReset />
+      <Heading textAlign='center'>yo</Heading>
+    </ThemeProvider>
+  )
 }
 
 export default App
