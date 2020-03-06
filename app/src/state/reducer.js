@@ -14,6 +14,8 @@ export default function reducer(state, action) {
         ...state,
         todos: state.todos.filter(t => t.title !== action.payload.title),
       }
+    case 'EDIT':
+      return state
     default:
       return state
   }
