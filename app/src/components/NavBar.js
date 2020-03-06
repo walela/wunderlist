@@ -27,11 +27,8 @@ const NavBar = () => {
         </Text>
       </Flex>
       <Box>
-        <Button variantColor='facebook' mx={3} color='white' as={Link} to='/'>
-          Home
-        </Button>
 
-        <Button variantColor='whatsapp' mx={3} as={Link} to='/'>
+        <Button variantColor='facebook' mx={3} as={Link} to='/'>
           Login
         </Button>
 
