@@ -57,7 +57,22 @@ export default function TodoList() {
             variantColor='facebook'
             aria-label='Mark complete'
             icon='edit'
-            onClick={() => dispatch({ type: 'EDIT', payload: t })}></IconButton>
+            onClick={() => {
+              axios()
+                .put(
+                  `https://wunderlist-2-0-be.herokuapp.com/api/todo/tasks/${t.id}`,
+                  { t }
+                )
+                .then(res => {
+                  console.log(res.data)
+                })
+                .catch(err => {
+                  console.error(err)
+                })
+
+              dispatch({ type: 'EDIT', payload: t })
+            }}
+          />
         </Flex>
       ))}
     </React.Fragment>
