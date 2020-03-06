@@ -1,60 +1,45 @@
-import React, { Component } from 'react';
-import './task-form.css';
+import React, { useContext, useState } from 'react'
+import Store from '../context'
 
+export default function TodoForm() {
+  const { dispatch } = useContext(Store)
 
-export class TaskForm extends Component {
-  static propTypes = {
-    handleSubmit: PropTypes.func.isRequired
-  };
+  // Creating a local state to have currently writing
+  // todo item that will be sent to the global store.
+  const [todo, setTodo] = useState('')
 
-  constructor() {
-    super(...arguments);
-
-    this.state = {title: ''};
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleKeyUp = this.handleKeyUp.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+  function handleTodoChange(e) {
+    setTodo(e.target.value)
   }
 
-  clearInput() {
-    this.setState({title: ''});
+  function handleTodoAdd() {
+    dispatch({ type: 'ADD_TODO', payload: todo })
+    setTodo('')
   }
 
-  handleChange(event) {
-    this.setState({title: event.target.value});
+  function handleSubmitForm(event) {
+    if (event.keyCode === 13) handleTodoAdd()
   }
 
-  handleKeyUp(event) {
-    if (event.keyCode === 27) this.clearInput();
-  }
-
-  handleSubmit(event) {
-    event.preventDefault();
-    const title = this.state.title.trim();
-    if (title.length) this.props.handleSubmit(title);
-    this.clearInput();
-  }
-
-  render() {
-    return (
-      <form className="task-form" onSubmit={this.handleSubmit} noValidate>
-        <input
-          autoComplete="off"
-          autoFocus
-          className="task-form__input"
-          maxLength="64"
-          onChange={this.handleChange}
-          onKeyUp={this.handleKeyUp}
-          placeholder="What needs to be done?"
-          ref={e => this.titleInput = e}
-          type="text"
-          value={this.state.title}
-        />
-      </form>
-    );
-  }
+  return (
+    <div>
+      <div>
+        <br />
+        <div>
+          <input
+            value={todo}
+            autoFocus={true}
+            placeholder='Enter new todo'
+            onKeyUp={handleSubmitForm}
+            onChange={handleTodoChange}
+          />
+          <div>
+            <button onClick={handleTodoAdd}>
+              Add Todo
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
 }
-
-
-export default TaskForm;
