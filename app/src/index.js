@@ -9,4 +9,3 @@ render(
   </Router>,
   document.getElementById('root')
 )
-

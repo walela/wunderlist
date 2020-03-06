@@ -5,6 +5,7 @@ import { TodoHeader } from './TodoHeader'
 
 export default function TodoList() {
   const { state, dispatch } = useContext(Store)
+  console.log(state)
 
   const pluralize = count =>
     count > 1 ? `There are ${count} todos.` : `There is ${count} todo.`
