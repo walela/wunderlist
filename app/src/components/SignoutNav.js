@@ -3,11 +3,11 @@ import { Button, Box, Flex, Image, Text } from '@chakra-ui/core'
 import { Link } from 'react-router-dom'
 
 const NavBar = () => {
-  const firstName = localStorage.getItem('first_name') ?? 'User'
+  const firstName = localStorage.getItem('firstname') ?? 'User'
 
   let handleSignout = () => {
     localStorage.removeItem('token')
-    localStorage.removeItem('todos')
+    localStorage.removeItem('state')
     localStorage.removeItem('userId')
   }
   return (

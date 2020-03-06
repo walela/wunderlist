@@ -6,7 +6,9 @@ import uuid from 'react-uuid'
 
 export default function TodoList() {
   const { state, dispatch } = useContext(Store)
-  const [todos, setTodos] = useState([])
+  const [todos, setTodos] = useState([
+    { title: 'Add a todo', completed: false },
+  ])
 
   const userId = localStorage.getItem('userId')
 
@@ -16,14 +18,14 @@ export default function TodoList() {
         `https://wunderlist-2-0-be.herokuapp.com/api/todo/users/${userId}/tasks`
       )
       .then(res => {
-        console.log(res.data)
         res.data.forEach(todo => {
           const newTodo = { title: todo.title, completed: todo.completed }
           dispatch({ type: 'ADD_TODO', payload: newTodo })
+          console.log(todo)
         })
       })
       .catch(err => console.error(err))
-  }, [userId])
+  }, [])
 
   return (
     <React.Fragment>
@@ -37,7 +39,9 @@ export default function TodoList() {
             icon='check'
             onClick={e => {
               e.preventDefault()
-              axios().delete(`https://wunderlist-2-0-be.herokuapp.com/api/todo/tasks/${t.id}`)
+              axios().delete(
+                `https://wunderlist-2-0-be.herokuapp.com/api/todo/tasks/${t.id}`
+              )
               dispatch({ type: 'COMPLETE', payload: t })
             }}></IconButton>
           <Text

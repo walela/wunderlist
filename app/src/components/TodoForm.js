@@ -46,7 +46,7 @@ export default function TodoForm() {
         onChange={handleTodoChange}
       />
 
-      <Button px={5} variantColor='facebook' onClick={handleTodoAdd}>
+      <Button px={5} variantColor='facebook' onClick={() => handleTodoAdd}>
         Add Todo
       </Button>
     </Box>
