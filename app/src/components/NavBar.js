@@ -1,17 +1,17 @@
 import React from 'react'
-import { ThemeProvider, Box, Flex, Link, Image, Text } from '@chakra-ui/core'
-import './styles.css'
+import { Button, Box, Flex, Image, Text } from '@chakra-ui/core'
+import { Link } from 'react-router-dom'
 
 const NavLink = ({ children, ...props }) => (
-  <Link px={2} color='white' {...props}>
+  <Link px={2} color='indigo' {...props}>
     {children}
   </Link>
 )
 
-function App() {
+const NavBar = () => {
   return (
     <Flex
-      bg='tomato'
+      bg='lightskyblue'
       w='100%'
       px={5}
       py={4}
@@ -19,18 +19,28 @@ function App() {
       alignItems='center'>
       <Flex flexDirection='row' justifyContent='center' alignItems='center'>
         <Image
-          src='https://upload.wikimedia.org/wikipedia/commons/a/ab/Android_O_Preview_Logo.png'
+          src='https://image.flaticon.com/icons/svg/1507/1507749.svg'
           size={30}
         />
-        <Text pl={3} color='white'>
-          Company
+        <Text pl={3} color='black' fontFamily='JetBrains Mono' fontSize={30}>
+          Wunderlist
         </Text>
       </Flex>
       <Box>
-        <NavLink>Home</NavLink>
-        <NavLink>About</NavLink>
-        <NavLink>Contact</NavLink>
+        <Button variantColor='facebook' mx={3} color='white' as={Link} to='/'>
+          Home
+        </Button>
+
+        <Button variantColor='whatsapp' mx={3} as={Link} to='/'>
+          Login
+        </Button>
+
+        <Button variantColor='linkedin' mx={3} as={Link} to='signup'>
+          Sign Up
+        </Button>
       </Box>
     </Flex>
   )
 }
+
+export default NavBar

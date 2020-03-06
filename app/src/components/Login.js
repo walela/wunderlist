@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import axios from 'axios'
-import { Box, FormControl, Stack, Input, Button } from '@chakra-ui/core'
+import { FormControl, Stack, Input, Button } from '@chakra-ui/core'
 
 export default function Login(props) {
   const initialValues = {
@@ -39,7 +39,7 @@ export default function Login(props) {
   }
 
   return (
-        <Stack spacing={3} w="30vw" border="2px solid black" p={4} ml="35vw" mt="25vh">
+        <Stack spacing={3} w="30vw" border="2px solid grey" p={4} ml="35vw" mt="12vh">
           <form onSubmit={props.onSubmit}>
             <FormControl>
               <Stack spacing={5}>
