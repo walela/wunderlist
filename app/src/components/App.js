@@ -1,5 +1,5 @@
 import React, { useReducer, useContext } from 'react'
-import { ThemeProvider, CSSReset, Heading } from '@chakra-ui/core'
+import { ThemeProvider, CSSReset } from '@chakra-ui/core'
 import { Switch, Route } from 'react-router-dom'
 import ProtectedRoute from '../helpers/ProtectedRoutes'
 
