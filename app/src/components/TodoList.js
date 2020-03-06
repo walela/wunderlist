@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useEffect, useContext } from 'react'
 import { Flex, IconButton, Text } from '@chakra-ui/core'
 import axios from '../helpers/axiosWithAuth'
 import Store from '../state/context'
@@ -6,9 +6,6 @@ import uuid from 'react-uuid'
 
 export default function TodoList() {
   const { state, dispatch } = useContext(Store)
-  const [todos, setTodos] = useState([
-    { title: 'Add a todo', completed: false },
-  ])
 
   const userId = localStorage.getItem('userId')
 

@@ -7,7 +7,7 @@ const NavBar = () => {
 
   let handleSignout = () => {
     localStorage.removeItem('token')
-    localStorage.removeItem('state')
+    localStorage.removeItem('todos')
     localStorage.removeItem('userId')
   }
   return (
