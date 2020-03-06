@@ -1,11 +1,10 @@
 import React, { useContext, useState } from 'react'
+import { Stack, Box, Input, Button } from '@chakra-ui/core'
 import Store from '../state/context'
 
 export default function TodoForm() {
   const { dispatch } = useContext(Store)
 
-  // Creating a local state to have currently writing
-  // todo item that will be sent to the global store.
   const [todo, setTodo] = useState('')
 
   function handleTodoChange(e) {
@@ -22,24 +21,20 @@ export default function TodoForm() {
   }
 
   return (
-    <div>
-      <div>
-        <br />
-        <div>
-          <input
-            value={todo}
-            autoFocus={true}
-            placeholder='Enter new todo'
-            onKeyUp={handleSubmitForm}
-            onChange={handleTodoChange}
-          />
-          <div>
-            <button onClick={handleTodoAdd}>
-              Add Todo
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+    <Box ml="2vw" mt="2vh">
+      <Input
+        w='40vw'
+        mb={2}
+        value={todo}
+        autoFocus={true}
+        placeholder='Enter new todo'
+        onKeyUp={handleSubmitForm}
+        onChange={handleTodoChange}
+      />
+
+      <Button px={5} variantColor='facebook' onClick={handleTodoAdd}>
+        Add Todo
+      </Button>
+    </Box>
   )
 }

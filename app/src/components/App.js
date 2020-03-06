@@ -5,9 +5,13 @@ import ProtectedRoute from '../helpers/ProtectedRoutes'
 
 import Store from '../state/context'
 import reducer from '../state/reducer'
-import { usePersistedContext, usePersistedReducer } from '../state/useLocalStorage'
+import {
+  usePersistedContext,
+  usePersistedReducer,
+} from '../state/useLocalStorage'
 
 import NavBar from './NavBar'
+import SignoutNav from './SignoutNav'
 import Login from './Login'
 import Signup from './Signup'
 import TodoForm from './TodoForm'
@@ -37,6 +41,7 @@ function App() {
           </Route>
           <ProtectedRoute path='/todos'>
             <Store.Provider value={{ state, dispatch }}>
+              <SignoutNav />
               <TodoForm />
               <TodoList />
             </Store.Provider>
