@@ -2,12 +2,6 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 import { Box, FormControl, Stack, Input, Button } from '@chakra-ui/core'
-import styled from '@emotion/styled'
-
-const StyledLogin = styled.div`
-  width: 240px;
-  margin: 0 auto;
-`
 
 export default function Login(props) {
   const initialValues = {
@@ -45,47 +39,35 @@ export default function Login(props) {
   }
 
   return (
-    <React.Fragment>
-      <NavBar page='login' />
-      <StyledLogin>
-        <Box
-          w='25vw'
-          border='1px'
-          borderRadius='md'
-          p={4}
-          color='black'
-          borderColor='grey'>
-          <h1 style={{ textAlign: 'center' }}>Login</h1>
+        <Stack spacing={3} w="30vw" border="2px solid black" p={4} ml="35vw" mt="25vh">
           <form onSubmit={props.onSubmit}>
             <FormControl>
-              <Stack spacing={3}>
+              <Stack spacing={5}>
                 <Input
                   type='email'
-                  placeholder='email'
+                  placeholder='Email'
                   name='email'
                   value={loginValues.email}
                   onChange={handleChange}
                 />
                 <Input
                   type='password'
-                  placeholder='password'
+                  placeholder='Password'
                   name='password'
                   value={loginValues.password}
                   onChange={handleChange}
                 />
                 <Button
                   variantColor='teal'
-                  m={2}
                   size='lg'
                   tyep='submit'
+                  w="100%"
                   onClick={handleSubmit}>
                   Login
                 </Button>
               </Stack>
             </FormControl>
           </form>
-        </Box>
-      </StyledLogin>
-    </React.Fragment>
+        </Stack>
   )
 }
