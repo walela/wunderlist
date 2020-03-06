@@ -1,11 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 const Store = React.createContext({
-  todos: [
-    'Learn React',
-    'Learn Redux',
-    'Learn Context',
-  ],
+  todos: [{ title: 'Add a todo', completed: false }],
 })
 
 export default Store

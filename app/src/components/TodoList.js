@@ -1,10 +1,11 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import {
   Input,
   Flex,
   IconButton,
   Text,
 } from '@chakra-ui/core'
+import axios from "../helpers/axiosWithAuth"
 import Store from '../state/context'
 
 export default function TodoList() {
@@ -30,12 +31,12 @@ export default function TodoList() {
             px={6}
             key={t}
             mt={5}
-            mb={5}
+            mb={2}
             fontSize='2xl'>
             {t}
           </Text>
           <IconButton
-            mt={5}
+            mt={2}
             variantColor='facebook'
             aria-label='Mark complete'
             icon='edit'

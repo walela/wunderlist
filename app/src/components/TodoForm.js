@@ -1,6 +1,10 @@
 import React, { useContext, useState } from 'react'
 import { Box, Input, Button } from '@chakra-ui/core'
 import Store from '../state/context'
+import axios from "../helpers/axiosWithAuth"
+import uuid from "uuid"
+
+const baseURL = "https://wunderlist-2-0-be.herokuapp.com/api/todo/tasks"
 
 export default function TodoForm() {
   const { dispatch } = useContext(Store)
@@ -13,7 +17,9 @@ export default function TodoForm() {
 
   function handleTodoAdd() {
     dispatch({ type: 'ADD_TODO', payload: todo })
+    axios().post(`${baseURL}/${uuid()}`, )
     setTodo('')
+
   }
 
   function handleSubmitForm(event) {

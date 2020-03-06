@@ -3,6 +3,10 @@ import { Button, Box, Flex, Image, Text } from '@chakra-ui/core'
 import { Link } from 'react-router-dom'
 
 const NavBar = () => {
+  let handleSignout = () => {
+    localStorage.removeItem('token')
+    localStorage.removeItem('todos')
+  }
   return (
     <Flex
       bg='lightskyblue'
@@ -21,7 +25,12 @@ const NavBar = () => {
         </Text>
       </Flex>
       <Box>
-        <Button variantColor='whatsapp' mx={3} as={Link} to='signup'>
+        <Button
+          variantColor='whatsapp'
+          mx={3}
+          as={Link}
+          to='/'
+          onClick={handleSignout}>
           Sign Out
         </Button>
       </Box>

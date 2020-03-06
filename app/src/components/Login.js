@@ -25,6 +25,7 @@ export default function Login(props) {
         password: loginValues.password,
       })
       .then(res => {
+        localStorage.setItem("token", res.data.token)
         pageHistory.push('/todos')
       })
       .catch(err => console.error(err))
