@@ -2,7 +2,6 @@ import React from 'react'
 import { Button, Box, Flex, Image, Text } from '@chakra-ui/core'
 import { Link } from 'react-router-dom'
 
-
 const NavBar = () => {
   return (
     <Flex
@@ -22,13 +21,8 @@ const NavBar = () => {
         </Text>
       </Flex>
       <Box>
-
-        <Button variantColor='facebook' mx={3} as={Link} to='/'>
-          Login
-        </Button>
-
         <Button variantColor='linkedin' mx={3} as={Link} to='signup'>
-          Sign Up
+          Sign Out
         </Button>
       </Box>
     </Flex>

@@ -1,6 +1,7 @@
 import React from 'react'
 import { ThemeProvider, CSSReset, Heading } from '@chakra-ui/core'
 import { Switch, Route } from 'react-router-dom'
+import ProtectedRoute from '../helpers/ProtectedRoutes'
 import NavBar from './NavBar'
 import Login from './Login'
 import Signup from './Signup'
@@ -11,17 +12,19 @@ function App() {
     <React.Fragment>
       <ThemeProvider>
         <CSSReset />
-        <NavBar />
+
         <Switch>
           <Route exact path='/'>
+            <NavBar />
             <Login />
           </Route>
           <Route path='/signup'>
+            <NavBar />
             <Signup />
           </Route>
-          <Route path='/todos'>
+          <ProtectedRoute path='/todos'>
             <TodoList />
-          </Route>
+          </ProtectedRoute>
         </Switch>
       </ThemeProvider>
     </React.Fragment>
