@@ -26,6 +26,8 @@ export default function Login(props) {
       })
       .then(res => {
         localStorage.setItem("token", res.data.token)
+        localStorage.setItem("userId", res.data.user.id)
+        localStorage.setItem("firstname", res.data.first_name)
         pageHistory.push('/todos')
       })
       .catch(err => console.error(err))

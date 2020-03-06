@@ -3,9 +3,12 @@ import { Button, Box, Flex, Image, Text } from '@chakra-ui/core'
 import { Link } from 'react-router-dom'
 
 const NavBar = () => {
+  const firstName = localStorage.getItem('first_name') ?? 'User'
+
   let handleSignout = () => {
     localStorage.removeItem('token')
     localStorage.removeItem('todos')
+    localStorage.removeItem('userId')
   }
   return (
     <Flex
@@ -24,6 +27,13 @@ const NavBar = () => {
           Wunderlist
         </Text>
       </Flex>
+      <Text
+        fontSize={24}
+        textDecoration='underline'
+        fontFamily='Fira Code'
+        textColor='red'>
+        {firstName}
+      </Text>
       <Box>
         <Button
           variantColor='whatsapp'

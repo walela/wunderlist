@@ -5,10 +5,6 @@ export default function reducer(state, action) {
       if (!action.payload) {
         return state
       }
-      //handles duplicates
-      if (state.todos.includes(action.payload)) {
-        return state
-      }
       return {
         ...state,
         todos: [...state.todos, action.payload],
@@ -16,7 +12,7 @@ export default function reducer(state, action) {
     case 'COMPLETE':
       return {
         ...state,
-        todos: state.todos.filter(t => t !== action.payload),
+        todos: state.todos.filter(t => t.title !== action.payload.title),
       }
     default:
       return state

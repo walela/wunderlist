@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 
 
 const NavBar = () => {
+
   return (
     <Flex
       bg='lightskyblue'

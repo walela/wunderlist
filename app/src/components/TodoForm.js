@@ -1,10 +1,8 @@
 import React, { useContext, useState } from 'react'
 import { Box, Input, Button } from '@chakra-ui/core'
 import Store from '../state/context'
-import axios from "../helpers/axiosWithAuth"
-import uuid from "uuid"
+import axios from '../helpers/axiosWithAuth'
 
-const baseURL = "https://wunderlist-2-0-be.herokuapp.com/api/todo/tasks"
 
 export default function TodoForm() {
   const { dispatch } = useContext(Store)
@@ -15,11 +13,20 @@ export default function TodoForm() {
     setTodo(e.target.value)
   }
 
-  function handleTodoAdd() {
-    dispatch({ type: 'ADD_TODO', payload: todo })
-    axios().post(`${baseURL}/${uuid()}`, )
-    setTodo('')
+  const userId = localStorage.getItem('userId')
 
+  function handleTodoAdd() {
+    axios()
+      .post(
+        `https://wunderlist-2-0-be.herokuapp.com/api/todo/users/${userId}/tasks`,
+        { title: todo, completed: 'false' }
+      )
+      .then(res => {
+        const newTodo = { title: res.data.title, completed: res.data.completed }
+        dispatch({ type: 'ADD_TODO', payload: newTodo })
+      })
+      .catch(err => console.error(err))
+    setTodo('')
   }
 
   function handleSubmitForm(event) {
