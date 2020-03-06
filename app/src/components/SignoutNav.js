@@ -21,7 +21,7 @@ const NavBar = () => {
         </Text>
       </Flex>
       <Box>
-        <Button variantColor='linkedin' mx={3} as={Link} to='signup'>
+        <Button variantColor='whatsapp' mx={3} as={Link} to='signup'>
           Sign Out
         </Button>
       </Box>
