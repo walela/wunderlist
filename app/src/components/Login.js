@@ -37,11 +37,14 @@ export default function Login(props) {
     <Stack
       spacing={3}
       w='30vw'
-      border='2px solid grey'
-      p={4}
+      px={6}
+      pt={6}
+      pb={72}
       ml='35vw'
-      mt='12vh'>
-      <Heading fontFamily='JetBrains Mono' textAlign='center'>
+      mt='12vh'
+      boxShadow="-2px 1px 5px grey, 1px -1px 5px grey"
+      >
+      <Heading fontFamily='Jacques Francois' textAlign='center'>
         Login
       </Heading>
       <form onSubmit={props.onSubmit}>
@@ -53,6 +56,7 @@ export default function Login(props) {
               name='email'
               value={loginValues.email}
               onChange={handleChange}
+              variant="flushed"
             />
             <Input
               type='password'
@@ -60,6 +64,7 @@ export default function Login(props) {
               name='password'
               value={loginValues.password}
               onChange={handleChange}
+              variant="flushed"
             />
             <Button
               variantColor='teal'
